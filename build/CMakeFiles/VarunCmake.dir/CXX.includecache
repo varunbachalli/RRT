@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/RRT.h
+vector
+-
+iostream
+-
+mutex
+-
+thread
+-
+math.h
+-
+map
+-
+iterator
+-
+random
+-
+stdlib.h
+-
+time.h
+-
+fstream
+-
+limits
+-
+
+/home/varunbachalli/RRT/src/RRT.cpp
+RRT.h
+-
+

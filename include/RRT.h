@@ -87,7 +87,7 @@ private:
 public:
     RRT(int width, int height);
     ~RRT();
-    void add_node_to_tree(point p, Node *parent, double distance);// has mutex
+    bool add_node_to_tree(point p, Node *parent, double distance);// has mutex
     void get_closest_point(double &best_distance, Node* node ,Node* &result, point& new_p);
     void get_new_point(point& p);
     void set_del_q(double x);

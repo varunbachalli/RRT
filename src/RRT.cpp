@@ -67,8 +67,6 @@ int RRT::orientation(point p, point q, point r)
     return (val > 0) ? 1 : 2; // clock or counterclock wise
 }
 
-// The main function that returns true if line segment 'p1q1'
-// and 'p2q2' intersect.
 bool RRT::doIntersect(point p1, point q1, point p2, point q2)
 {
     // Find the four orientations needed for general and
@@ -196,8 +194,9 @@ bool RRT::result_reached(point p)
     }
     return false;
 }
-void RRT::add_node_to_tree(point p, Node *parent, double distance)
+bool RRT::add_node_to_tree(point p, Node *parent, double distance)
 {
+    bool result = false;
     if (distance > del_q)
     {
         p.x = parent->p.x + (p.x - parent->p.x) * del_q / distance;
@@ -208,6 +207,7 @@ void RRT::add_node_to_tree(point p, Node *parent, double distance)
         new_node->parent = parent;
         if (result_reached(p))
         {
+            result = true;
             set_solution_line(new_node);
         }
     }
@@ -219,10 +219,12 @@ void RRT::add_node_to_tree(point p, Node *parent, double distance)
         new_node->parent = parent;
         if (result_reached(p))
         {
+            result = true;
             set_solution_line(new_node);
         }
     }
     parent->number_children++;
+    return result;
 }
 
 void RRT::get_closest_point(double &best_distance, Node *node, Node *&result, point &new_p)

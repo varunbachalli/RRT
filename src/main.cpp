@@ -25,7 +25,8 @@ int main()
     obj.set_del_q(r);
 
     obj.set_obstacles(g.get_obstacles());
-    while(true)
+    bool start_looping = true;
+    while(start_looping)
     {   
         std::cout << "how many iterations do you want to run?" << std::endl;
         std::string iterations;
@@ -41,7 +42,11 @@ int main()
             Node *result = obj.getroot();
             obj.get_closest_point(distance, root, result, p);
             std::cout << result->p.x << "," << result->p.y << std::endl;
-            obj.add_node_to_tree(p, result, distance);
+            if(obj.add_node_to_tree(p, result, distance))
+            {
+                start_looping = false;
+                break;
+            };
         }
         obj.OpenFile(iter);
         g.plot_results(obj.get_lines());
@@ -50,6 +55,7 @@ int main()
         if(iterations == "N")
         {
             break;
+            start_looping = false;
         }
     }
     return 0;

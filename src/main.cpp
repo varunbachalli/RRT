@@ -26,13 +26,14 @@ int main()
 
     obj.set_obstacles(g.get_obstacles());
     bool start_looping = true;
+    int total_iterations = 0;
     while(start_looping)
     {   
         std::cout << "how many iterations do you want to run?" << std::endl;
         std::string iterations;
         std::cin >> iterations;
         int iter = std::stoi(iterations);
-
+        total_iterations+= iter;
         point p;
         for (int i = 0; i < iter; ++i)
         {
@@ -48,7 +49,7 @@ int main()
                 break;
             };
         }
-        obj.OpenFile(iter);
+        obj.OpenFile(total_iterations);
         g.plot_results(obj.get_lines());
         std::cout << "keep going? " << std::endl;
         std::cin >> iterations;

@@ -39,7 +39,7 @@ void RRT::WriteOutput(Node *node, point path[], int pathLen, std::ofstream& file
         /* otherwise try all subtrees */
         for (auto itr = node->children.begin(); itr != node->children.end(); ++itr)
         {
-            WriteOutput(itr->first, path, pathLen, file);
+            WriteOutput(*itr, path, pathLen, file);
         }
     }
 }

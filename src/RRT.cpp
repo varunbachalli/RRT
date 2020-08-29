@@ -185,6 +185,7 @@ void RRT::print_stack(std::stack<point> s)
     } 
    std::cout << '\n'; 
 }
+
 bool RRT::result_reached(point p)
 {
     if (pow(p.x - end_p.x, 2) + pow(p.y - end_p.y, 2) < pow(radius, 2))
@@ -194,6 +195,7 @@ bool RRT::result_reached(point p)
     }
     return false;
 }
+
 bool RRT::add_node_to_tree(point p, Node *parent, double distance)
 {
     bool result = false;
@@ -202,7 +204,7 @@ bool RRT::add_node_to_tree(point p, Node *parent, double distance)
         p.x = parent->p.x + (p.x - parent->p.x) * del_q / distance;
         p.y = parent->p.y + (p.y - parent->p.y) * del_q / distance;
         Node *new_node = new Node(p);
-        parent->children.insert(std::pair<Node *, double>(new_node, del_q + parent->node_cost));
+        parent->children.push_back(new_node);
         new_node->node_cost = del_q + parent->node_cost;
         new_node->parent = parent;
         if (result_reached(p))
@@ -214,7 +216,7 @@ bool RRT::add_node_to_tree(point p, Node *parent, double distance)
     else
     {
         Node *new_node = new Node(p);
-        parent->children.insert(std::pair<Node *, double>(new_node, distance + parent->node_cost));
+        parent->children.push_back(new_node);
         new_node->node_cost = distance + parent->node_cost;
         new_node->parent = parent;
         if (result_reached(p))
@@ -240,7 +242,7 @@ void RRT::get_closest_point(double &best_distance, Node *node, Node *&result, po
         auto itr = node->children.begin();
         while (itr != node->children.end())
         {
-            get_closest_point(best_distance, itr->first, result, new_p);
+            get_closest_point(best_distance, *itr, result, new_p);
             ++itr;
         }
     }

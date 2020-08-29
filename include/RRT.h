@@ -43,7 +43,7 @@ struct point
 struct Node
 {
     point p;
-    std::map<Node*, double> children;
+    std::vector<Node*> children;
     Node *parent = nullptr;
     int number_children;
     double node_cost = 0.0;
@@ -56,8 +56,7 @@ struct Node
     {
         for (auto child : children)
         {
-            std::cout << "deleted node" <<p.x <<"," <<p.y<< std::endl;
-            delete child.first;
+            delete child;
         }
     }
 };

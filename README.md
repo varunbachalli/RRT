@@ -28,12 +28,15 @@ make
 
    ![](DocumentImages/First.png) 
 3. Left click anywhere else on the screen to choose the end point. A red circle will come up 
+
    ![](DocumentImages/Second.png)
 
 4. Left click at a distance from the end point to set the radius of the circle within which the solution is assumed to be reached.
+
     ![](DocumentImages/Third.png)
 
 5. Left click again anywhere on the screen to get a starting and ending point. These points represent the maximum distance travelled in any direction, during the RRT search.
+
     ![](DocumentImages/Fourth.png)
 
 6. Obstacles can only be in the form of rectangles. So to create obstacles, select the two opposite corners of the rectangle. top left and bottom right or bottom left and top right.
@@ -47,6 +50,7 @@ make
 9.  It'll evaluate that many times and then pop up window with the solution.
 
 10. You can keep adding number of iterations until your solution is found.
+
 ![](DocumentImages/Sixth.png)
 
 

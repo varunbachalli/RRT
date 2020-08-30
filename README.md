@@ -20,31 +20,32 @@ make
 ```
 # Instructions to run.
 1. The terminal will ask you what dimensions you want your canvas to be.
-   I have a 15 inch laptop so I choose width = 1000 and height = 1000 
+   I have a 15 inch laptop so I choose width = 1500 and height = 1000 
 
 2. A gui with a blank white canvas will turn up.
    Select the starting position by left clicking on the screen. 
    A green circle will come up.
 
    ![](DocumentImages/First.png) 
-3. Left click somewhere else on the screen and left click again on the screen. A red circle will come up 
+3. Left click anywhere else on the screen to choose the end point. A red circle will come up 
    ![](DocumentImages/Second.png)
 
-4. Left click again close to the end point to get a region around the circle , which would imply that the solution has been reached.
+4. Left click at a distance from the end point to set the radius of the circle within which the solution is assumed to be reached.
     ![](DocumentImages/Third.png)
 
-5. Left click again anywhere on the screen to get a starting and ending point. These points represent the maximum distance travelled in any direction.
-
+5. Left click again anywhere on the screen to get a starting and ending point. These points represent the maximum distance travelled in any direction, during the RRT search.
     ![](DocumentImages/Fourth.png)
 
-6. Obstacles can only be in the form of rectangles. So to create obstacles.
-   To create  a rectangle, select the two opposite corners of the rectangle. top left and bottom right or bottom left and top right. In that order.
+6. Obstacles can only be in the form of rectangles. So to create obstacles, select the two opposite corners of the rectangle. top left and bottom right or bottom left and top right.
 
    ![](DocumentImages/Fifth.png)
 
 7. Then close the window.
+
 8. The terminal will ask you how many iterations you want to execute. pick any number. 
-9.  It'll evaluate that many times and then pop up an other image with the solution.
+
+9.  It'll evaluate that many times and then pop up window with the solution.
+
 10. You can keep adding number of iterations until your solution is found.
 ![](DocumentImages/Sixth.png)
 
